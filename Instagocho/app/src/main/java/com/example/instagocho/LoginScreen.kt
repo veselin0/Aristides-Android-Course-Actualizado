@@ -20,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -40,6 +41,35 @@ fun LoginScreen(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize()) {
         Header()
         Body(modifier = Modifier.align(Alignment.Center))
+        Footer(modifier = Modifier.align(Alignment.BottomCenter))
+    }
+}
+
+@Composable
+fun Footer(modifier: Modifier) {
+    Column(modifier = modifier.fillMaxWidth()) {
+        HorizontalDivider(
+            modifier = Modifier.fillMaxWidth(),
+            thickness = 1.dp,
+            color = Color.LightGray //(0xFFF9F9F9)
+        )
+        Spacer(modifier = Modifier.size(24.dp))
+        SignUp()
+        Spacer(modifier = Modifier.size(24.dp))
+    }
+}
+
+@Composable
+fun SignUp() {
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+        Text(text = "Don't have an account?", fontSize = 12.sp, color = Color(0xFFB5B5B5))
+        Text(
+            text = "Sign up.",
+            modifier = Modifier.padding(horizontal = 8.dp),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF4EA8E9)
+        )
     }
 }
 
@@ -50,7 +80,7 @@ fun Body(modifier: Modifier) {
     var isLoginEnabled by rememberSaveable { mutableStateOf(false) }
     Column(modifier = modifier) {
         Text(
-            text = "INSTAGOCH",
+            text = "INSTAGOCHO",
             fontSize = 50.sp,
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
